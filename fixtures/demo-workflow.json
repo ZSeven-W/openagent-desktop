@@ -1,0 +1,46 @@
+{
+  "id": "customer-bugfix",
+  "name": "Customer Bugfix Triage",
+  "steps": [
+    {
+      "id": "collect-context",
+      "title": "Collect context",
+      "agent": "Scout",
+      "status": "completed",
+      "startedAt": "2026-04-15T08:00:00Z",
+      "finishedAt": "2026-04-15T08:05:00Z"
+    },
+    {
+      "id": "reproduce-bug",
+      "title": "Reproduce bug",
+      "agent": "Debugger",
+      "status": "completed",
+      "dependsOn": ["collect-context"],
+      "startedAt": "2026-04-15T08:06:00Z",
+      "finishedAt": "2026-04-15T08:21:00Z"
+    },
+    {
+      "id": "draft-release-notes",
+      "title": "Draft release notes",
+      "agent": "Writer",
+      "status": "ready",
+      "dependsOn": ["reproduce-bug"]
+    },
+    {
+      "id": "ship-fix",
+      "title": "Ship fix",
+      "agent": "Finisher",
+      "status": "blocked",
+      "dependsOn": ["qa-signoff"],
+      "notes": "Waiting for verification sign-off before packaging the release."
+    },
+    {
+      "id": "qa-signoff",
+      "title": "QA sign-off",
+      "agent": "Verifier",
+      "status": "running",
+      "dependsOn": ["reproduce-bug"],
+      "startedAt": "2026-04-15T08:22:00Z"
+    }
+  ]
+}

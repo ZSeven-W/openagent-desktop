@@ -1,0 +1,12 @@
+{
+  "name": "openagent-desktop",
+  "version": "0.1.0",
+  "description": "Local-first agent orchestration studio MVP",
+  "type": "commonjs",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test"
+  },
+  "license": "MIT"
+}

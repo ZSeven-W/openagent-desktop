@@ -1,0 +1,44 @@
+{
+  "id": "content-launch",
+  "name": "Content Launch Pipeline",
+  "steps": [
+    {
+      "id": "draft-script",
+      "title": "Draft script",
+      "agent": "Researcher",
+      "status": "completed",
+      "startedAt": "2026-04-16T09:00:00Z",
+      "finishedAt": "2026-04-16T09:18:00Z"
+    },
+    {
+      "id": "record-voiceover",
+      "title": "Record voiceover",
+      "agent": "Producer",
+      "status": "running",
+      "dependsOn": ["draft-script"],
+      "startedAt": "2026-04-16T09:20:00Z"
+    },
+    {
+      "id": "cut-teaser",
+      "title": "Cut teaser clip",
+      "agent": "Editor",
+      "status": "ready",
+      "dependsOn": ["draft-script"]
+    },
+    {
+      "id": "schedule-posts",
+      "title": "Schedule launch posts",
+      "agent": "Distributor",
+      "status": "ready",
+      "dependsOn": ["draft-script"]
+    },
+    {
+      "id": "publish-launch",
+      "title": "Publish launch",
+      "agent": "Operator",
+      "status": "blocked",
+      "dependsOn": ["record-voiceover"],
+      "notes": "Need the producer timeline lock before final publish."
+    }
+  ]
+}
